@@ -1,0 +1,6 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 2rem 4rem 2rem;
+  color: var(--light-shades);
+}

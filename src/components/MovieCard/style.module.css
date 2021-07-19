@@ -1,0 +1,35 @@
+.movie_card_img {
+  height: 400px;
+  overflow: hidden;
+  object-fit: center;
+  padding-top: 1px;
+  border-radius: 5px;
+}
+
+.movie_card {
+  border: 1px solid lightgrey;
+  height: 500px;
+  width: 100%;
+  background-color: var(--light-shades);
+  border: 1px solid var(--light-accent);
+  margin: 1rem;
+}
+
+.movie_title {
+  font-family: "EB Garamond";
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: var(--dark-shades);
+}
+
+.favorites_icon {
+  margin-top: 0.5rem;
+  color: var(--dark-shades);
+  font-size: 2rem;
+}
+
+.card_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}

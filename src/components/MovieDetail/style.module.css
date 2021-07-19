@@ -1,0 +1,10 @@
+.movie-detail-container {
+  margin: 3rem;
+}
+
+.title {
+  padding-bottom: 2rem;
+}
+.poster {
+  width: 70%;
+}

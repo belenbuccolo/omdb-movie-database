@@ -1,0 +1,9 @@
+.body-container {
+  margin: 3rem;
+}
+
+.main_title {
+  color: var(--dark-shades);
+  font-family: "EB Garamond";
+  font-size: 3rem;
+}

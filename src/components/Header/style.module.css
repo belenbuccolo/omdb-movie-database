@@ -1,0 +1,22 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-shades);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  color: var(--light-shades);
+  font-family: "Roboto";
+  font-size: 1rem;
+}
+
+.icon {
+  padding-left: 1rem;
+  color: var(--light-shades);
+}
