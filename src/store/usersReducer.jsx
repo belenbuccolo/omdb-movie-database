@@ -9,7 +9,7 @@ const initialState = {
   error: "",
 };
 
-const axiosWithToken = axios.create({
+let axiosWithToken = axios.create({
   timeout: 1000,
   headers: { Authorization: `Bearer ${initialState.token}` },
 });
@@ -34,11 +34,22 @@ export const logUser = createAsyncThunk("LOGIN", (user, thunkAPI) => {
 export const addFavoriteMovie = createAsyncThunk(
   "ADD_FAVORITE_MOVIE",
   (movieId, thunkAPI) => {
+    // REVIEW esto lo estoy sobrescribiendo para no traer el token del initialState y no tener que recargar la pagina
+    const token = thunkAPI.getState().users.token;
+    axiosWithToken = axios.create({
+      timeout: 1000,
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return axiosWithToken
       .post("/api/users/favorites", { movieId: movieId })
       .then((res) => res.data)
       .catch((err) => thunkAPI.rejectWithValue(err.response.data));
   }
+);
+
+export const removeFavoriteMovie = createAsyncThunk(
+  "REMOVE_FAVORITE_MOVIE",
+  (movieId) => {}
 );
 
 const usersReducer = createReducer(initialState, {

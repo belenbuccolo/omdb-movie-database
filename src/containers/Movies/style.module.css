@@ -1,9 +1,32 @@
 .body-container {
-  margin: 3rem;
+  margin: 4rem;
+  display: flex;
+}
+
+.message {
+  /* position absolute center */
+  position: absolute;
+  top: 16rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  /* style */
+  opacity: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: var(--dark-accent);
+  font-size: 1rem;
+  color: var(--light-shades);
 }
 
 .main_title {
   color: var(--dark-shades);
-  font-family: "EB Garamond";
+  font-family: "Oswald", sans-serif;
   font-size: 3rem;
+}
+
+.subtitle {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }

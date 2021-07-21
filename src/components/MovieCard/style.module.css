@@ -1,35 +1,49 @@
-.movie_card_img {
-  height: 400px;
-  overflow: hidden;
-  object-fit: center;
-  padding-top: 1px;
-  border-radius: 5px;
-}
-
 .movie_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
   border: 1px solid lightgrey;
-  height: 500px;
+  height: 100%;
   width: 100%;
-  background-color: var(--light-shades);
+  max-width: 100%;
+  background-color: var(--dark-shades);
   border: 1px solid var(--light-accent);
   margin: 1rem;
 }
 
+.image_container {
+  height: auto;
+  /* height: auto; */
+  width: 100%;
+}
+
+.movie_card_img {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: top center;
+  /* padding-top: 1px; */
+  border-radius: 5px;
+}
+
+.card_content {
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .movie_title {
-  font-family: "EB Garamond";
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
+  font-family: "Oswald";
+  font-size: 1rem;
+  /* margin-top: 0.5rem; */
   color: var(--dark-shades);
 }
 
 .favorites_icon {
-  margin-top: 0.5rem;
+  /* margin-top: 0.5rem; */
   color: var(--dark-shades);
   font-size: 2rem;
-}
-
-.card_content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
 }

@@ -7,7 +7,10 @@ const initialState = {
   currentMovie: JSON.parse(localStorage.getItem("currentMovie")) || {},
   searchedMovies: [],
   favoriteMovies: [],
+  query: "",
 };
+
+export const setQuery = createAction("SET_QUERY");
 
 export const clearMovies = createAction("CLEAR_MOVIES");
 
@@ -19,17 +22,24 @@ export const getMovie = createAsyncThunk("MOVIE", (id) => {
   return axios.get(`${api}i=${id}`).then((res) => res.data);
 });
 
-export const getFavoriteMovies = createAsyncThunk("FAVORITE_MOVIES", (favoriteMovies) => {
-  const moviePromises = [];
-  console.log("favoriteMoviesId en reducer", favoriteMovies);
-  for (let movieId in favoriteMovies) {
-    const promise = axios.get(`${api}i=${movieId}`).then((res) => res.data);
-    moviePromises.push(promise);
+export const getFavoriteMovies = createAsyncThunk(
+  "FAVORITE_MOVIES",
+  (favoriteMoviesIds) => {
+    const moviePromises = [];
+    console.log(favoriteMoviesIds);
+    for (let movieId of favoriteMoviesIds) {
+      console.log("me voy a traer", movieId);
+      const promise = axios.get(`${api}i=${movieId}`).then((res) => res.data);
+      moviePromises.push(promise);
+    }
+    return Promise.all(moviePromises);
   }
-  return Promise.all(moviePromises);
-});
+);
 
 const moviesReducer = createReducer(initialState, {
+  [setQuery]: (state, action) => {
+    state.query = action.payload;
+  },
   [clearMovies]: (state, action) => {
     state.searchedMovies = [];
     state.currentMovie = {};

@@ -11,7 +11,6 @@ const { secretKey } = require("./jwt");
 const router = express.Router();
 
 router.use("/", function (req, res, next) {
-  console.log("entre al middleware");
   // res.header("Access-Control-Allow-Origin", "*");
   // res.header("Access-Control-Allow-Methods", "*");
   res.header("Access-Control-Allow-Headers", "Authorization");
@@ -24,9 +23,7 @@ router.post("/register", async (req, res, next) => {
   try {
     // Chequear que el formato del username, email y password sea correcto
     if (!validator.isAlpha(username)) {
-      return next(
-        createError(400, "Username can only contain alpha characters")
-      );
+      return next(createError(400, "Username can only contain alpha characters"));
     }
     if (!validator.isEmail(email)) {
       return next(createError(400, "Email format is invalid"));
@@ -98,8 +95,7 @@ router.post("/favorites", verifyToken, async (req, res, next) => {
   try {
     const user = await User.findOne({ where: { id: req.user } });
 
-    if (!user)
-      return next(createError(500, "Something went wrong, user not found"));
+    if (!user) return next(createError(500, "Something went wrong, user not found"));
 
     const movie = await user.addFavoriteMovie(movieId);
     res.status(201).json(movie);

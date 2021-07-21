@@ -1,10 +1,32 @@
-.movie-detail-container {
-  margin: 3rem;
+.card_container {
+  height: 36rem;
+  padding-right: 8rem;
 }
 
-.title {
-  padding-bottom: 2rem;
+.movie_title {
+  margin-top: 2rem;
+  font-family: Oswald;
+  font-size: x-large;
 }
-.poster {
-  width: 70%;
+
+.movie_description {
+  margin-top: 0.5rem;
+  font-size: smaller;
+}
+
+.info_li {
+  list-style-type: none;
+  font-size: smaller;
+  margin-left: -2.5rem;
+}
+
+.ratings {
+}
+
+.ratings_title {
+  font-weight: bold;
+}
+
+.rating_li {
+  font-size: smaller;
 }

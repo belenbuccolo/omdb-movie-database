@@ -11,11 +11,18 @@ const searchForm = function ({ handleQuery, query }) {
     <div className={s["search-form"]}>
       <TextField
         className={s.input}
+        margin="none"
+        type="string"
         id="outlined-basic"
         label="Search..."
-        variant="outlined"
+        autoFocus
+        variant="filled"
+        size="small"
         value={query}
         onChange={handleQuery}
+        // InputProps={{
+        //   style: {},
+        // }}
       />
     </div>
   );

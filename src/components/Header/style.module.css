@@ -2,7 +2,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.5rem;
   background-color: var(--dark-shades);
+}
+
+.logo {
+  padding-top: 0.4rem;
+  padding-left: 3rem;
+  max-height: 40px;
+}
+
+.items {
+  display: flex;
+  align-items: center;
 }
 
 .actions {
@@ -11,12 +23,20 @@
 }
 
 .text {
+  padding-left: 2rem;
+  padding-right: 2rem;
   color: var(--light-shades);
-  font-family: "Roboto";
-  font-size: 1rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+}
+
+.text:hover {
+  color: var(--main);
+  cursor: pointer;
 }
 
 .icon {
-  padding-left: 1rem;
+  margin-left: -1.5rem;
+  padding-right: 3rem;
   color: var(--light-shades);
 }

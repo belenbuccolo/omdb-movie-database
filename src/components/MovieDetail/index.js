@@ -3,34 +3,56 @@ import React from "react";
 // Material-ui components
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 
 // Local
+import MovieCard from "../MovieCard";
 import s from "./style.module.css";
 
-// TODO hacer que cuando se recargue la pagina no se pierdan los detalles
-
-const MovieDetail = function ({ movie }) {
+const MovieDetail = function ({ movie, addToFavorites, isFavorite, setMovie }) {
   console.log(movie);
   console.log(movie.Poster);
   return (
-    <Container className={s["move-detail-container"]}>
-      <Typography variant="h5" className={s.title}>
-        {`${movie.Title} (${movie.Year})`}
-      </Typography>
+    <Container>
       <Grid container item>
-        <Grid item xs={12} md={6}>
-          <img src={movie.Poster} className={s.poster} alt="poster"></img>
-          {/* <div className={s.ratings}>
-            {movie.Ratings.map((rating) => {
-              return <p>{`${rating.source}: ${rating.value}`}</p>;
-            })}
-          </div> */}
+        <Grid item xs={6} md={1} className={s.card_container}></Grid>
+        <Grid item xs={6} md={5} className={s.card_container}>
+          <MovieCard
+            id={movie.imdbID}
+            title={movie.Title}
+            type={movie.type}
+            year={movie.Year}
+            poster={movie.Poster}
+            addToFavorites={addToFavorites}
+            isFavorite={isFavorite}
+            setMovie={setMovie}
+          />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <p>Genre: {movie.Genre}</p>
-          <p>Director: {movie.Director}</p>
+        <Grid item xs={6} md={4}>
+          <div className={s.movie_title}>{movie.Title}</div>
+          <div className={s.movie_description}>{movie.Plot}</div>
+          <div>
+            <ul>
+              <li className={s.info_li}>Genre: {movie.Genre}</li>
+              <li className={s.info_li}>Director: {movie.Director}</li>
+              <li className={s.info_li}>Cast: {movie.Actors}</li>
+              <li className={s.info_li}>Country: {movie.Country}</li>
+            </ul>
+          </div>
+          <div className={s.ratings}>
+            <div className={s.ratings_title}>Ratings</div>
+            <ul>
+              {movie.Ratings &&
+                movie.Ratings.map((rating) => {
+                  return (
+                    <li className={s.rating_li}>{`${rating.Source || ""}: ${
+                      rating.Value || ""
+                    }`}</li>
+                  );
+                })}
+            </ul>
+          </div>
         </Grid>
+        <Grid item xs={6} md={1} className={s.card_container}></Grid>
       </Grid>
     </Container>
   );

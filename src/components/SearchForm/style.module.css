@@ -1,6 +1,18 @@
+:root {
+}
+/* 
+.MuiTextField-root {
+  color: white;
+} */
+
 .search-form {
   display: flex;
   justify-content: center;
-  margin: 2rem 2rem 4rem 2rem;
+  padding-right: 2rem;
   color: var(--light-shades);
+}
+
+.input {
+  background-color: white;
+  border-radius: 5px;
 }
