@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setQuery } from "../../store/moviesReducer";
+import React from "react";
+import { useSelector } from "react-redux";
+
+import useSearch from "../../hooks/useSearch";
 import Header from "../../components/Header";
 
 const HeaderContainer = function () {
-  const dispatch = useDispatch();
-
-  const [value, setValue] = useState(JSON.parse(localStorage.getItem("query")) || "");
   const isAuth = useSelector((state) => state.users.isAuth);
+  const { value, handleQuery, search } = useSearch();
 
   const logout = () => {
     localStorage.removeItem("isAuth");
@@ -15,15 +14,14 @@ const HeaderContainer = function () {
     window.location.reload(); // REVIEW
   };
 
-  // Guardar el query en el state a medida que es tipeado
-  const handleQuery = (e) => {
-    setValue(e.target.value);
-    setQuery(value.toLowerCase());
-    dispatch(setQuery(value));
-  };
-
   return (
-    <Header isAuth={isAuth} logout={logout} query={value} handleQuery={handleQuery} />
+    <Header
+      isAuth={isAuth}
+      logout={logout}
+      query={value}
+      handleQuery={handleQuery}
+      search={search}
+    />
   );
 };
 

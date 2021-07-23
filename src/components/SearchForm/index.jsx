@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField";
 // Local
 import s from "./style.module.css";
 
-const searchForm = function ({ handleQuery, query }) {
+const searchForm = function ({ handleQuery, query, search }) {
   return (
     <div className={s["search-form"]}>
       <TextField
@@ -20,9 +20,7 @@ const searchForm = function ({ handleQuery, query }) {
         size="small"
         value={query}
         onChange={handleQuery}
-        // InputProps={{
-        //   style: {},
-        // }}
+        onKeyUp={search}
       />
     </div>
   );

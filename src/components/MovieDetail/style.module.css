@@ -30,3 +30,17 @@
 .rating_li {
   font-size: smaller;
 }
+
+.button_wrapper {
+  margin-top: 2rem;
+  width: 25%;
+}
+
+.button {
+  background-color: var(--main);
+  padding: 1rem 1rem;
+  border: 1px solid var(--dark-shades);
+  border-radius: 3px;
+  align-self: center;
+  width: 100%;
+}

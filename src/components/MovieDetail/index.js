@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Material-ui components
 import Container from "@material-ui/core/Container";
@@ -51,6 +52,11 @@ const MovieDetail = function ({ movie, addToFavorites, isFavorite, setMovie }) {
                 })}
             </ul>
           </div>
+          <Link to="/movies">
+            <div className={s.button_wrapper}>
+              <button className={s.button}>Go Back</button>
+            </div>
+          </Link>
         </Grid>
         <Grid item xs={6} md={1} className={s.card_container}></Grid>
       </Grid>

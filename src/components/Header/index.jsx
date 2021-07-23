@@ -14,7 +14,14 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SearchForm from "../SearchForm";
 import s from "./style.module.css";
 
-const Header = function ({ isAuth, logout, handleQuery, query, getFavoriteMovies }) {
+const Header = function ({
+  isAuth,
+  logout,
+  handleQuery,
+  query,
+  search,
+  getFavoriteMovies,
+}) {
   return (
     <header>
       <AppBar component="nav" position="static" color="transparent">
@@ -27,7 +34,7 @@ const Header = function ({ isAuth, logout, handleQuery, query, getFavoriteMovies
           <div className={s.items}>
             <div>
               <Link to="/movies">
-                <SearchForm handleQuery={handleQuery} query={query} />
+                <SearchForm handleQuery={handleQuery} query={query} search={search} />
               </Link>
             </div>
             <div>
