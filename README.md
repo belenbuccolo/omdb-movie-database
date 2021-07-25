@@ -4,7 +4,7 @@ Web application that uses the OMDB API to obtain movie information and let the u
 
 ## Demo
 
-![omdb.png](:/655dd64707834d21aeb12dd29d0b861e)
+![omdb.png](omdb.png)
 ![omdb](omdb.gif)
 
 ## Built with
