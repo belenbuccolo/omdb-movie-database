@@ -10,6 +10,7 @@ Web application that uses the OMDB API to obtain movie information and let the u
 
 - Node.js
 - Express
+- JWT (JSON Web Tokens)
 - React
 - React router
 - Material UI
