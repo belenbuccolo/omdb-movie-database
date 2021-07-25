@@ -1,5 +1,5 @@
 // React
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container";
 import s from "./style.module.css";
 import MovieDetail from "../../components/MovieDetail";
 import MovieGrid from "../../components/MovieGrid";
+import Loading from "../../components/Loading";
 import { getMovies, getMovie, getFavoriteMovies } from "../../store/moviesReducer";
 import { addFavoriteMovie } from "../../store/usersReducer";
 
@@ -26,13 +27,19 @@ const Movies = function () {
 
   // Mensaje para avisar que se agrego o removio de favoritos
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  React.useEffect(() => {
-    dispatch(getMovies(query.toLowerCase()));
+  useEffect(() => {
+    console.log("loading", loading);
+  }, [loading]);
+
+  useEffect(() => {
+    setLoading(true);
+    dispatch(getMovies(query.toLowerCase())).then(() => setLoading(false));
     localStorage.setItem("query", JSON.stringify(query));
   }, [dispatch, query]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(getFavoriteMovies(favoriteMoviesIds));
   }, [dispatch, favoriteMoviesIds]);
 
@@ -82,41 +89,44 @@ const Movies = function () {
         </div>
       </Container>
       <Container className={s["body-container"]}>
-        <Switch>
-          <Route
-            path="/movies/favorites"
-            render={() => (
-              <MovieGrid
-                movies={favoriteMovies}
-                setMovie={setMovie}
-                addToFavorites={addToFavorites}
-                isFavorite={isFavorite}
-              />
-            )}
-          />
-          <Route
-            path="/movies/:id"
-            render={() => (
-              <MovieDetail
-                movie={currentMovie}
-                addToFavorites={addToFavorites}
-                isFavorite={isFavorite}
-                setMovie={setMovie}
-              />
-            )}
-          />
-          <Route
-            path="/movies"
-            render={() => (
-              <MovieGrid
-                movies={movies}
-                setMovie={setMovie}
-                addToFavorites={addToFavorites}
-                isFavorite={isFavorite}
-              />
-            )}
-          />
-        </Switch>
+        {!loading && (
+          <Switch>
+            <Route
+              path="/movies/favorites"
+              render={() => (
+                <MovieGrid
+                  movies={favoriteMovies}
+                  setMovie={setMovie}
+                  addToFavorites={addToFavorites}
+                  isFavorite={isFavorite}
+                />
+              )}
+            />
+            <Route
+              path="/movies/:id"
+              render={() => (
+                <MovieDetail
+                  movie={currentMovie}
+                  addToFavorites={addToFavorites}
+                  isFavorite={isFavorite}
+                  setMovie={setMovie}
+                />
+              )}
+            />
+            <Route
+              path="/movies"
+              render={() => (
+                <MovieGrid
+                  movies={movies}
+                  setMovie={setMovie}
+                  addToFavorites={addToFavorites}
+                  isFavorite={isFavorite}
+                />
+              )}
+            />
+          </Switch>
+        )}
+        {loading && <Loading />}
       </Container>
     </main>
   );

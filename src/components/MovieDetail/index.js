@@ -10,8 +10,6 @@ import MovieCard from "../MovieCard";
 import s from "./style.module.css";
 
 const MovieDetail = function ({ movie, addToFavorites, isFavorite, setMovie }) {
-  console.log(movie);
-  console.log(movie.Poster);
   return (
     <Container>
       <Grid container item>

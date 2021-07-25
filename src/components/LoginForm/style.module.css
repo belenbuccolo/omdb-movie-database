@@ -16,9 +16,16 @@
 
 .button {
   background-color: var(--main);
+  color: white;
   padding: 1rem 2rem;
-  border: 1px solid var(--dark-shades);
+  border: 1px solid var(--light-shades);
   border-radius: 3px;
   align-self: center;
   width: 100%;
+}
+
+.button:hover {
+  border: 1px solid var(--dark-shades);
+  font-weight: bold;
+  cursor: pointer;
 }

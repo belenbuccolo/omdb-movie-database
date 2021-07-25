@@ -1,0 +1,29 @@
+.loading {
+  margin: auto;
+  padding: 8em;
+  font-size: 2rem;
+  overflow: hidden;
+  width: 0px;
+  animation: dots steps(4, end) 2s infinite;
+}
+
+.loading:after {
+  display: inline-block;
+  animation: dots steps(1, end) 1s infinite;
+  content: "";
+}
+
+@keyframes dots {
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+  100% {
+    content: "";
+  }
+}

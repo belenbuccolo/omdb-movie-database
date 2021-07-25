@@ -27,7 +27,13 @@ const movieCard = function ({
       <CardContent onClick={() => setMovie(id)}>
         <Link to={`/movies/${id}`}>
           <div className={s.image_container}>
-            <img className={s.movie_card_img} src={poster} alt="movie-poster" />
+            <img
+              width="100"
+              height="180"
+              className={s.movie_card_img}
+              src={poster}
+              alt="movie-poster"
+            />
           </div>
         </Link>
         <div className={s.card_content}>

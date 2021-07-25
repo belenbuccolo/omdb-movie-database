@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: space-between;
-  border: 1px solid lightgrey;
   height: 100%;
   width: 100%;
   max-width: 100%;
@@ -12,9 +11,11 @@
   margin: 1rem;
 }
 
+.movie_card:hover {
+  box-shadow: 10px 10px 5px grey;
+}
+
 .image_container {
-  height: auto;
-  /* height: auto; */
   width: 100%;
 }
 
@@ -24,7 +25,7 @@
   overflow: hidden;
   object-fit: cover;
   object-position: top center;
-  /* padding-top: 1px; */
+  aspect-ratio: 1/1.5;
   border-radius: 5px;
 }
 

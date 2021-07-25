@@ -2,6 +2,8 @@ import { useState } from "react";
 import { setQuery } from "../store/moviesReducer";
 import { useDispatch } from "react-redux";
 
+import { getMovies } from "../store/moviesReducer";
+
 const useSearch = function () {
   const dispatch = useDispatch();
   const [value, setValue] = useState(JSON.parse(localStorage.getItem("query")) || "");
@@ -16,6 +18,7 @@ const useSearch = function () {
   // On enter it clears the input
   const search = (e) => {
     if (e.key === "Enter") {
+      dispatch(getMovies(value.toLowerCase()));
       setValue("");
     }
   };
