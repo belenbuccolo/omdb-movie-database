@@ -4,13 +4,13 @@ Web application that uses the OMDB API to obtain movie information and let the u
 
 ## Demo
 
-![omdb.png](omdb.png)
 ![omdb](omdb.gif)
 
 ## Built with
 
 - Node.js
 - Express
+- JWT (JSON Web Tokens)
 - React
 - React router
 - Material UI
